@@ -9,6 +9,7 @@ public class RoomCalculator {
 		Scanner scan = new Scanner(System.in); 
 		boolean usersWish = true; 
 				
+		//while loop is used to ensure that the user can keep using the program for additional rooms if they choose
 		while (usersWish == true) {
 			
 			boolean validLen = false; 
@@ -18,6 +19,7 @@ public class RoomCalculator {
 			String width = ""; 
 			String height = ""; 
 			
+			// while loops ensures that the user's strings is actually a double and not something else. 
 			while (validLen == false) { 
 				
 				System.out.println("Enter length: ");
@@ -26,13 +28,13 @@ public class RoomCalculator {
 				validLen = true; 
 			
 				for (int i = 0; i < length.length(); i++) {
-					if (Character.isDigit(length.charAt(i)) == false && length.charAt(i) != '.') {
+					if (Character.isDigit(length.charAt(i)) == false && length.charAt(i) != '.') { // ensures a real double is entered
 						validLen = false; 
 					}
 				}
 				
 				for (int i = 0; i < length.length() - 1; i++) {
-					if (length.charAt(i) == '.' && length.charAt(i + 1) == '.') {
+					if (length.charAt(i) == '.' && length.charAt(i + 1) == '.') { // the above for loop cannot  check  for multiple periods such as ".."
 						validLen = false; 
 					}
 				}
@@ -42,6 +44,8 @@ public class RoomCalculator {
 					System.out.println("");
 				}
 			} 
+			
+			// the next two while loops are the exact same logic as the above one just applied to width and height. 
 			
 			while (validWid == false) { 
 				
