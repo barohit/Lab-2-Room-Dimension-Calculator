@@ -30,6 +30,12 @@ public class RoomCalculator {
 						validLen = false; 
 					}
 				}
+				
+				for (int i = 0; i < length.length() - 1; i++) {
+					if (length.charAt(i) == '.' && length.charAt(i + 1) == '.') {
+						validLen = false; 
+					}
+				}
 			
 				if (validLen == false) {
 					System.out.println("Error, invalid entry, please enter again: ");
@@ -46,6 +52,12 @@ public class RoomCalculator {
 			
 				for (int i = 0; i < width.length(); i++) {
 					if (Character.isDigit(width.charAt(i)) == false && width.charAt(i) != '.') {
+						validWid = false; 
+					}
+				}
+				
+				for (int i = 0; i < width.length() - 1; i++) {
+					if (width.charAt(i) == '.' && width.charAt(i + 1) == '.') {
 						validWid = false; 
 					}
 				}
@@ -67,6 +79,13 @@ public class RoomCalculator {
 					if (Character.isDigit(height.charAt(i)) == false && height.charAt(i) != '.') {
 						validHei = false; 
 					}
+					
+				}
+				
+				for (int i = 0; i < height.length() - 1; i++) {
+					if (height.charAt(i) == '.' && height.charAt(i + 1) == '.') {
+						validHei = false; 
+					}
 				}
 			
 				if (validHei == false) {
@@ -78,6 +97,7 @@ public class RoomCalculator {
 			double area = Double.parseDouble(length) * Double.parseDouble(width); 
 			double perimeter = 2 * (Double.parseDouble(length) + Double.parseDouble(width)); 
 			double volume = area * Double.parseDouble(height); 
+			System.out.println("");  
 			System.out.println("Area: " + area); 
 			System.out.println("Perimeter: " +  perimeter);  
 			System.out.println("Volume: " + volume); 
