@@ -10,17 +10,74 @@ public class RoomCalculator {
 		boolean usersWish = true; 
 				
 		while (usersWish == true) {
-					
-			System.out.println("Enter length: ");
-			double length = scan.nextDouble(); 
-			System.out.println("Enter width: ");
-			double width = scan.nextDouble(); 
-			System.out.println("Enter height: "); // for extra challenge; 
-			double height = scan.nextDouble(); 
+			
+			boolean validLen = false; 
+			boolean validWid = false; 
+			boolean validHei = false; 
+			String length = ""; 
+			String width = ""; 
+			String height = ""; 
+			
+			while (validLen == false) { 
 				
-			double area = length * width; 
-			double perimeter = 2 * (length + width); 
-			double volume = area * height; 
+				System.out.println("Enter length: ");
+				length = scan.next(); 
+			
+				validLen = true; 
+			
+				for (int i = 0; i < length.length(); i++) {
+					if (Character.isDigit(length.charAt(i)) == false && length.charAt(i) != '.') {
+						validLen = false; 
+					}
+				}
+			
+				if (validLen == false) {
+					System.out.println("Error, invalid entry, please enter again: ");
+					System.out.println("");
+				}
+			} 
+			
+			while (validWid == false) { 
+				
+				System.out.println("Enter width: ");
+				width = scan.next(); 
+			
+				validWid = true; 
+			
+				for (int i = 0; i < width.length(); i++) {
+					if (Character.isDigit(width.charAt(i)) == false && width.charAt(i) != '.') {
+						validWid = false; 
+					}
+				}
+			
+				if (validWid == false) {
+					System.out.println("Error, invalid entry, please enter again: ");
+					System.out.println("");
+				}
+			} 
+			
+			while (validHei == false) { 
+				
+				System.out.println("Enter height: ");
+				height = scan.next(); 
+			
+				validHei = true; 
+			
+				for (int i = 0; i < height.length(); i++) {
+					if (Character.isDigit(height.charAt(i)) == false && height.charAt(i) != '.') {
+						validHei = false; 
+					}
+				}
+			
+				if (validHei == false) {
+					System.out.println("Error, invalid entry, please enter again: ");
+					System.out.println(""); 
+				}
+			} 
+				
+			double area = Double.parseDouble(length) * Double.parseDouble(width); 
+			double perimeter = 2 * (Double.parseDouble(length) + Double.parseDouble(width)); 
+			double volume = area * Double.parseDouble(height); 
 			System.out.println("Area: " + area); 
 			System.out.println("Perimeter: " +  perimeter);  
 			System.out.println("Volume: " + volume); 
